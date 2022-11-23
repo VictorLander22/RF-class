@@ -50,10 +50,7 @@ public:
 
     void sendRFraw(String code, uint16_t size, uint8_t tries)
     {
-        if (tries <= 0)
-            tries = 2;
-
-        if (size < 2)
+        if (size < 2) // some bug occours when the size is 1 causing the MCU to crash.
             size = 2;
 
         bool outValue;
